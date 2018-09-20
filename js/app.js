@@ -32,7 +32,7 @@ for(let i = 0; i < pics.length; i++) {
       if(this.innerHTML === openCards[0].innerHTML){
         console.log("Matched!");
       }
-      else{
+      else {
         console.log("No match!");
       }
     }
