@@ -13,10 +13,16 @@ const cardContainer = document.querySelector(".deck");
 
 // Create cards
 for(let i = 0; i < pics.length; i++) {
-  const card = document.createElement("div");
+  const card = document.createElement("li");
   card.classList.add("card");
+  card.innerHTML = `<i class = "${pics[i]}"</i>`;
   cardContainer.appendChild(card);
+  // Card Click event
+  card.addEventListener("click", function(){
+    console.log(card.innerHTML);
+  });
 }
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
