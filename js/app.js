@@ -9,6 +9,14 @@ const pics = ["fa fa-diamond, fa fa-diamond, fa fa-paper-plane-o, fa fa-paper-pl
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+const cardContainer = document.querySelector(".deck");
+
+// Create cards
+for(let i = 0; i < pics.length; i++) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  cardContainer.appendChild(card);
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
