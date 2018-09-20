@@ -10,6 +10,7 @@ const pics = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-pa
  *   - add each card's HTML to the page
  */
 const cardContainer = document.querySelector(".deck");
+let openCards = [];
 
 // Create cards
 for(let i = 0; i < pics.length; i++) {
@@ -21,7 +22,26 @@ for(let i = 0; i < pics.length; i++) {
   // Card Click event
   card.addEventListener("click", function(){
     console.log(card.innerHTML);        // Alert console when card is clicked.
-    card.classList.add("open", "show"); // Show card.
+
+    // If opened card exists
+    if(openCards.length === 1) {
+      card.classList.add("open", "show"); // Show card.
+      openCards.push(this);
+
+      //Compare cards
+      if(this.innerHTML === openCards[0].innerHTML){
+        console.log("Matched!");
+      }
+      else{
+        console.log("No match!");
+      }
+    }
+    // If there are no opened cards
+    else {
+      card.classList.add("open", "show"); // Show card.
+      openCards.push(this);
+    }
+
   });
 }
 
