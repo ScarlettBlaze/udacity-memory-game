@@ -17,9 +17,11 @@ for(let i = 0; i < pics.length; i++) {
   card.classList.add("card");
   card.innerHTML = `<i class = "${pics[i]}"</i>`;
   cardContainer.appendChild(card);
+
   // Card Click event
   card.addEventListener("click", function(){
-    console.log(card.innerHTML);
+    console.log(card.innerHTML);        // Alert console when card is clicked.
+    card.classList.add("open", "show"); // Show card.
   });
 }
 
