@@ -14,13 +14,25 @@ const cardContainer = document.querySelector(".deck");
 let openCards = [];
 let matchedCards = [];
 
+/*
+* Starting the game.
+*/
 // Create cards
-for(let i = 0; i < pics.length; i++) {
-  const card = document.createElement("li");
-  card.classList.add("card");
-  card.innerHTML = `<i class = "${pics[i]}"</i>`;
-  cardContainer.appendChild(card);
+function init(){
+  for(let i = 0; i < pics.length; i++) {
+    const card = document.createElement("li");
+    card.classList.add("card");
+    card.innerHTML = `<i class = "${pics[i]}"</i>`;
+    cardContainer.appendChild(card);
 
+    // Call card function.
+    click(card);
+  }
+}
+/*
+* Click Event
+*/
+function click(card) {
   // Card Click event
   card.addEventListener("click", function() {
 
@@ -34,34 +46,8 @@ for(let i = 0; i < pics.length; i++) {
       card.classList.add("open", "show"); // Show card.
       openCards.push(this);
 
-      // Compare cards
-      if(currentCard.innerHTML === previousCard.innerHTML) {
-
-        // Cards are the same.
-        currentCard.classList.add("match");
-        previousCard.classList.add("match");
-        console.log("Matched!");
-
-        matchedCards.push(currentCard, previousCard); // Update matchedCards array.
-
-        openCards = []; // Reset current pick and previous pick.
-
-        // Is the game over?
-        endGame();
-      }
-      else {
-
-        // Wait to show card.
-        setTimeout(function() {
-          currentCard.classList.remove("open", "show");
-          previousCard.classList.remove("open", "show");
-          console.log("No match!");
-        }, 500);
-        // Cards are not the same.
-
-
-        openCards = []; // Reset current pick and previous pick.
-      }
+      // Compare the two cards.
+      compare(currentCard, previousCard);
     }
     // If there are no opened cards
     else {
@@ -70,7 +56,38 @@ for(let i = 0; i < pics.length; i++) {
     }
   });
 }
+/*
+* Compare Cards.
+*/
+function compare(currentCard, previousCard) {
+  if(currentCard.innerHTML === previousCard.innerHTML) {
 
+    // Cards are the same.
+    currentCard.classList.add("match");
+    previousCard.classList.add("match");
+    console.log("Matched!");
+
+    // Update matchedCards array.
+    matchedCards.push(currentCard, previousCard);
+
+    // Is the game over?
+    endGame();
+  }
+  // Cards are not the same.
+  else {
+
+    // Reset current pick and previous pick.
+    openCards = [];
+
+    // Wait to show card.
+    setTimeout(function() {
+      currentCard.classList.remove("open", "show");
+      previousCard.classList.remove("open", "show");
+      console.log("No match!");
+      openCards = []; // Reset current pick and previous pick.
+    }, 500);
+  }
+}
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -92,6 +109,9 @@ function endGame(){
     alert("Game Over!")
   }
 }
+
+/////// First time game start.
+init();
 
 /*
  * set up the event listener for a card. If a card is clicked:
