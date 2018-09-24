@@ -20,17 +20,25 @@ for(let i = 0; i < pics.length; i++) {
   cardContainer.appendChild(card);
 
   // Card Click event
-  card.addEventListener("click", function(){
+  card.addEventListener("click", function() {
+
     console.log(card.innerHTML);        // Alert console when card is clicked.
 
     // If opened card exists
     if(openCards.length === 1) {
+
+      const currentCard = this;
+      const previousCard = openCards[0];
+
       card.classList.add("open", "show"); // Show card.
       openCards.push(this);
 
-      //Compare cards
-      if(this.innerHTML === openCards[0].innerHTML){
+      // Compare cards
+      if(currentCard.innerHTML === previousCard.innerHTML) {
+        currentCard.classList.add("match");
+        previousCard.classList.add("match");
         console.log("Matched!");
+        openCards = [];
       }
       else {
         console.log("No match!");
@@ -44,7 +52,6 @@ for(let i = 0; i < pics.length; i++) {
 
   });
 }
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
