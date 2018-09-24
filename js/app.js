@@ -52,7 +52,7 @@ for(let i = 0; i < pics.length; i++) {
       else {
 
         // Wait to show card.
-        setTimeout(function(){
+        setTimeout(function() {
           currentCard.classList.remove("open", "show");
           previousCard.classList.remove("open", "show");
           console.log("No match!");
