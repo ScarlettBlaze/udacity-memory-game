@@ -24,11 +24,10 @@ for(let i = 0; i < pics.length; i++) {
 
     console.log(card.innerHTML);        // Alert console when card is clicked.
 
+    const currentCard = this;
+    const previousCard = openCards[0];
     // If opened card exists
     if(openCards.length === 1) {
-
-      const currentCard = this;
-      const previousCard = openCards[0];
 
       card.classList.add("open", "show"); // Show card.
       openCards.push(this);
@@ -38,10 +37,15 @@ for(let i = 0; i < pics.length; i++) {
         currentCard.classList.add("match");
         previousCard.classList.add("match");
         console.log("Matched!"); // If the current card and the previous card are the same, display "Matched!" in console.
-        openCards = [];
+
+        openCards = []; // Reset current pick and previous pick.
       }
       else {
+        currentCard.classList.remove("open", "show");
+        previousCard.classList.remove("open", "show");
         console.log("No match!"); // If the current card and the previous card are not the same, display "No match!" in console.
+
+        openCards = []; // Reset current pick and previous pick.
       }
     }
     // If there are no opened cards
