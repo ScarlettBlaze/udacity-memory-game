@@ -63,7 +63,6 @@ for(let i = 0; i < pics.length; i++) {
       card.classList.add("open", "show"); // Show card.
       openCards.push(this);
     }
-
   });
 }
 
