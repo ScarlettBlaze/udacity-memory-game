@@ -37,11 +37,11 @@ for(let i = 0; i < pics.length; i++) {
       if(currentCard.innerHTML === previousCard.innerHTML) {
         currentCard.classList.add("match");
         previousCard.classList.add("match");
-        console.log("Matched!");
+        console.log("Matched!"); // If the current card and the previous card are the same, display "Matched!" in console.
         openCards = [];
       }
       else {
-        console.log("No match!");
+        console.log("No match!"); // If the current card and the previous card are not the same, display "No match!" in console.
       }
     }
     // If there are no opened cards
