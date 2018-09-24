@@ -89,6 +89,8 @@ function compare(currentCard, previousCard) {
       // Reset current pick and previous pick.
       openCards = [];
   }
+  // Add new move.
+  addMove();
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -111,6 +113,15 @@ function endGame() {
   if (matchedCards.length === pics.length){
     alert("Game Over!")
   }
+}
+/*
+* Add move.
+*/
+const movesContainer = document.querySelector(".moves");
+let moves = 0;
+function addMove() {
+  moves++;
+  movesContainer.innerHTML = moves;
 }
 /*
 * Restart button.
