@@ -85,7 +85,7 @@ function compare(currentCard, previousCard) {
       previousCard.classList.remove("open", "show", "disable");
       console.log("No match!");
     }, 500);
-    
+
       // Reset current pick and previous pick.
       openCards = [];
   }
@@ -104,13 +104,28 @@ function shuffle(array) {
 
     return array;
 }
-
-// End game.
-function endGame(){
+/*
+* End game.
+*/
+function endGame() {
   if (matchedCards.length === pics.length){
     alert("Game Over!")
   }
 }
+/*
+* Restart button.
+*/
+const restartButton = document.querySelector(".restart");
+restartButton.addEventListener("click", function() {
+  // Delete all cards on screen.
+  cardContainer.innerHTML = "";
+
+  // Call 'init' function to create new cards.
+  init();
+
+  // Reset variables.
+  matchedCards = [];
+});
 
 /////// First time game start.
 init();
