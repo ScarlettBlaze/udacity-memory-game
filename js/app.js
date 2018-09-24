@@ -43,7 +43,7 @@ function click(card) {
     // If opened card exists
     if(openCards.length === 1) {
 
-      card.classList.add("open", "show"); // Show card.
+      card.classList.add("open", "show", "disable"); // Show card.
       openCards.push(this);
 
       // Compare the two cards.
@@ -51,7 +51,7 @@ function click(card) {
     }
     // If there are no opened cards
     else {
-      card.classList.add("open", "show"); // Show card.
+      card.classList.add("open", "show", "disable"); // Show card.
       openCards.push(this);
     }
   });
@@ -70,22 +70,24 @@ function compare(currentCard, previousCard) {
     // Update matchedCards array.
     matchedCards.push(currentCard, previousCard);
 
+    // Reset current pick and previous pick.
+    openCards = [];
+
     // Is the game over?
     endGame();
   }
   // Cards are not the same.
   else {
 
-    // Reset current pick and previous pick.
-    openCards = [];
-
     // Wait to show card.
     setTimeout(function() {
-      currentCard.classList.remove("open", "show");
-      previousCard.classList.remove("open", "show");
+      currentCard.classList.remove("open", "show", "disable");
+      previousCard.classList.remove("open", "show", "disable");
       console.log("No match!");
-      openCards = []; // Reset current pick and previous pick.
     }, 500);
+    
+      // Reset current pick and previous pick.
+      openCards = [];
   }
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
