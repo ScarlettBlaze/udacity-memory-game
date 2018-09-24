@@ -37,18 +37,23 @@ for(let i = 0; i < pics.length; i++) {
       // Compare cards
       if(currentCard.innerHTML === previousCard.innerHTML) {
 
-        // Matching cards.
+        // Cards are the same.
         currentCard.classList.add("match");
         previousCard.classList.add("match");
-        console.log("Matched!"); // If the current card and the previous card are the same, display "Matched!" in console.
-        matchedCards.push(currentCard, previousCard);
+        console.log("Matched!");
+
+        matchedCards.push(currentCard, previousCard); // Update matchedCards array.
 
         openCards = []; // Reset current pick and previous pick.
+
+        // Is the game over?
+        endGame();
       }
       else {
+        // Cards are not the same.
         currentCard.classList.remove("open", "show");
         previousCard.classList.remove("open", "show");
-        console.log("No match!"); // If the current card and the previous card are not the same, display "No match!" in console.
+        console.log("No match!");
 
         openCards = []; // Reset current pick and previous pick.
       }
