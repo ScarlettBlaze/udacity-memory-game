@@ -10,7 +10,9 @@ const pics = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-pa
  *   - add each card's HTML to the page
  */
 const cardContainer = document.querySelector(".deck");
+
 let openCards = [];
+let matchedCards = [];
 
 // Create cards
 for(let i = 0; i < pics.length; i++) {
@@ -34,9 +36,12 @@ for(let i = 0; i < pics.length; i++) {
 
       // Compare cards
       if(currentCard.innerHTML === previousCard.innerHTML) {
+
+        // Matching cards.
         currentCard.classList.add("match");
         previousCard.classList.add("match");
         console.log("Matched!"); // If the current card and the previous card are the same, display "Matched!" in console.
+        matchedCards.push(currentCard, previousCard);
 
         openCards = []; // Reset current pick and previous pick.
       }
@@ -72,6 +77,10 @@ function shuffle(array) {
     return array;
 }
 
+// End game.
+function endGame(){
+
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
