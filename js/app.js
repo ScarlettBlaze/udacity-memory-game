@@ -50,10 +50,15 @@ for(let i = 0; i < pics.length; i++) {
         endGame();
       }
       else {
+
+        // Wait to show card.
+        setTimeout(function(){
+          currentCard.classList.remove("open", "show");
+          previousCard.classList.remove("open", "show");
+          console.log("No match!");
+        }, 500);
         // Cards are not the same.
-        currentCard.classList.remove("open", "show");
-        previousCard.classList.remove("open", "show");
-        console.log("No match!");
+
 
         openCards = []; // Reset current pick and previous pick.
       }
