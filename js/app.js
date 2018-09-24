@@ -44,7 +44,7 @@ for(let i = 0; i < pics.length; i++) {
 
         matchedCards.push(currentCard, previousCard); // Update matchedCards array.
 
-        openCards = []; // Reset current pick and previous pick.
+        //openCards = []; // Reset current pick and previous pick.
 
         // Is the game over?
         endGame();
@@ -55,7 +55,7 @@ for(let i = 0; i < pics.length; i++) {
         previousCard.classList.remove("open", "show");
         console.log("No match!");
 
-        openCards = []; // Reset current pick and previous pick.
+        //openCards = []; // Reset current pick and previous pick.
       }
     }
     // If there are no opened cards
