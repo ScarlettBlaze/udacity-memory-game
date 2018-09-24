@@ -79,7 +79,9 @@ function shuffle(array) {
 
 // End game.
 function endGame(){
-
+  if (matchedCards.length === openCards.length){
+    alert("Game Over!")
+  }
 }
 
 /*
