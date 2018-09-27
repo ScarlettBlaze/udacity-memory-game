@@ -119,9 +119,13 @@ function endGame() {
 */
 const movesContainer = document.querySelector(".moves");
 let moves = 0;
+movesContainer.innerHTML = 0;
 function addMove() {
   moves++;
   movesContainer.innerHTML = moves;
+
+  // Set rating.
+  rating();
 }
 /*
 * Restart button.
@@ -136,8 +140,19 @@ restartButton.addEventListener("click", function() {
 
   // Reset variables.
   matchedCards = [];
+  moves = 0;
+  movesContainer.innerHTML = moves;
 });
-
+/*
+* Rating
+*/
+const ratingContainer = document.querySelector(".stars");
+function rating() {
+    if(moves > 5){
+      ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
+        <li><i class="fa fa-star"></i></li>`;
+    }
+}
 /////// First time game start.
 init();
 
