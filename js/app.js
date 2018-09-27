@@ -142,16 +142,27 @@ restartButton.addEventListener("click", function() {
   matchedCards = [];
   moves = 0;
   movesContainer.innerHTML = moves;
+  ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
+    <li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
 });
 /*
 * Rating
 */
 const ratingContainer = document.querySelector(".stars");
 function rating() {
-    if(moves > 5){
+  switch(moves){
+    case 20:
       ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
-        <li><i class="fa fa-star"></i></li>`;
-    }
+      <li><i class="fa fa-star"></i></li>`;
+    break;
+    case 25:
+      ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+    break;
+  }
+  /*if(moves > 5){
+    ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
+      <li><i class="fa fa-star"></i></li>`;
+  }*/
 }
 /////// First time game start.
 init();
