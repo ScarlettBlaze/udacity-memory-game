@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-const pics = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb"];
+const deckOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb"];
 
 /*
  * Display the cards on the page
@@ -10,7 +10,6 @@ const pics = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-pa
  *   - add each card's HTML to the page
  */
 const cardContainer = document.querySelector(".deck");
-
 let openCards = [];
 let matchedCards = [];
 
@@ -19,10 +18,14 @@ let matchedCards = [];
 */
 // Create cards
 function init(){
-  for(let i = 0; i < pics.length; i++) {
+
+  // Shuffle deck.
+  let shuffledDeck = shuffle(deckOfCards);
+
+  for(let i = 0; i < deckOfCards.length; i++) {
     const card = document.createElement("li");
     card.classList.add("card");
-    card.innerHTML = `<i class = "${pics[i]}"</i>`;
+    card.innerHTML = `<i class = "${shuffledDeck[i]}"</i>`;
     cardContainer.appendChild(card);
 
     // Call card function.
@@ -94,7 +97,7 @@ function compare(currentCard, previousCard) {
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -103,14 +106,13 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 /*
 * End game.
 */
 function endGame() {
-  if (matchedCards.length === pics.length){
+  if (matchedCards.length === deckOfCards.length){
     alert("Game Over!")
   }
 }
@@ -159,10 +161,6 @@ function rating() {
       ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>`;
     break;
   }
-  /*if(moves > 5){
-    ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
-      <li><i class="fa fa-star"></i></li>`;
-  }*/
 }
 /////// First time game start.
 init();
