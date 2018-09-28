@@ -9,9 +9,14 @@ const deckOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "f
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+// Global Values.
 const cardContainer = document.querySelector(".deck");
 let openCards = [];
 let matchedCards = [];
+let time = 0;
+let clockId;
+let clockOff = true;
 
 /*
 * Starting the game.
@@ -40,6 +45,14 @@ function click(card) {
   card.addEventListener("click", function() {
 
     console.log(card.innerHTML);        // Alert console when card is clicked.
+
+    const clickTarget = event.target;
+    if(isClickValid(clickTarget)) {
+      if (clockOff) {
+        startClock();
+        clockOff = false;
+      }
+    }
 
     const currentCard = this;
     const previousCard = openCards[0];
@@ -165,11 +178,19 @@ function rating() {
 /*
 * Timer
 */
-let timer = new Timer();
-timer.start();
-timer.addEventListener('secondsUpdated', function (e) {
-  $('.timer').html(timer.getTimeValues().toString());
-});
+function startClock() {
+  clockId = setInterval(() => {
+    time++;
+    displayTime();
+    console.log(time);
+  }, 1000);
+}
+
+function displayTime() {
+  const timer = document.querySelector('.timer');
+  console.log(timer);
+  timer.innerHTML = time;
+}
 /////// First time game start.
 init();
 
