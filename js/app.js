@@ -162,6 +162,14 @@ function rating() {
     break;
   }
 }
+/*
+* Timer
+*/
+let timer = new Timer();
+timer.start();
+timer.addEventListener('secondsUpdated', function (e) {
+  $('.timer').html(timer.getTimeValues().toString());
+});
 /////// First time game start.
 init();
 
