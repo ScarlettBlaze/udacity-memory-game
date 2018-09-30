@@ -171,8 +171,9 @@ function shuffle(array) {
 */
 function endGame() {
   if (matchedCards.length === deckOfCards.length){
-    alert("Game Over!")
+    //alert("Game Over!")
     clearTimeout(timer);
+    toggleModal();
   }
 }
 /*
@@ -189,7 +190,7 @@ function addMove() {
   rating();
 }
 /*
-* Restart button.
+* Restart button mid-game.
 */
 const restartButton = document.querySelector(".restart");
 restartButton.addEventListener("click", function() {
@@ -211,8 +212,33 @@ restartButton.addEventListener("click", function() {
     <li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
   seconds = -1;
   minutes = 0;
+});
+/*
+* Restart button on modal.
+*/
+const modalRestartButton = document.querySelector(".modal_restart");
+modalRestartButton.addEventListener("click", function() {
 
+  // Delete all cards on screen.
+  cardContainer.innerHTML = "";
+
+  // Reset timer.
+  clearTimeout(timer);
+
+  // Close modal.
+  toggleModal();
   
+  // Call 'init' function to create new cards.
+  init();
+
+  // Reset variables.
+  matchedCards = [];
+  moves = 0;
+  movesContainer.innerHTML = moves;
+  ratingContainer.innerHTML = `<span><i class="fa fa-star"></i></span>
+    <span><i class="fa fa-star"></i></span><span><i class="fa fa-star"></i></span>`;
+  seconds = -1;
+  minutes = 0;
 });
 /*
 * Rating
@@ -222,14 +248,43 @@ function rating() {
   switch(moves) {
     // If moves exceed 20, two star rating.
     case 20:
-      ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
-      <li><i class="fa fa-star"></i></li>`;
+      ratingContainer.innerHTML = `<span><i class="fa fa-star"></i></span>
+      <span><i class="fa fa-star"></i></span>`;
     break;
     // If moves exceed 25, one star rating.
     case 25:
-      ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+      ratingContainer.innerHTML = `<span><i class="fa fa-star"></i></span>`;
     break;
   }
 }
+/*
+* Toggle stat window.
+*/
+function toggleModal(){
+  const modal = document.querySelector('.modal_background');
+  modal.classList.toggle('hide');
+  writeModalStats();
+}
+/*
+* Display final results in modal.
+*/
+function writeModalStats(){
+  const timeStat = document.querySelector('.modal_time');
+  const clockTime = document.querySelector('.timer').innerHTML;
+  const movesStat = document.querySelector('.modal_moves');
+  const ratingStat = document.querySelector('.modal_rating');
+  const rating = ratingContainer.innerHTML;
+
+  timeStat.innerHTML = `Time: ${clockTime}`;
+  movesStat.innerHTML = `Moves: ${moves}`;
+  ratingStat.innerHTML = `Rating: ${rating}`;
+}
+/*
+* Cancel button in modal.
+*/
+document.querySelector('.modal_cancel').addEventListener('click', () => {
+  toggleModal();
+});
+
 /////// First time game start.
 init();

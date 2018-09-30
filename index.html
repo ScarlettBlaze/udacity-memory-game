@@ -19,15 +19,17 @@
         <section class="score-panel">
             Rating: 
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
+        		<span><i class="fa fa-star"></i></span>
+        		<span><i class="fa fa-star"></i></span>
+        		<span><i class="fa fa-star"></i></span>
             </ul>
             
             <span class="moves"></span> Moves
-
-            Timer: <span class="minutes"></span>:<span class="seconds"></span>
-
+            
+            Timer: 
+            <span class="timer">
+                <span class="minutes"></span>:<span class="seconds"></span>
+            </span>
             <div class="restart">
         		<i class="fa fa-repeat"></i>
         	</div>
@@ -37,16 +39,16 @@
 
         </ul>
     </div>
-    <div class="modal_background">
+    <div class="modal_background hide">
         <div class="modal_body">
             <div class="modal_heading">
                 <h1 class="modal_title">Stats</h1>
                 <span class="modal_close">x</span>
             </div>
             <div class="modal_stats">
-                <span class="modal_time">Time: </span>
-                <span class="modal_rating">Rating: </span>
-                <span class="modal_moves">Moves: </span>
+                <span class="modal_time"></span>
+                <span class="modal_rating"></span>
+                <span class="modal_moves"></span>
             </div>
             <div class="modal_buttons">
                 <button class="modal_button modal_cancel">Cancel</button>
