@@ -22,10 +22,8 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Dependencies
 
-- css/apps.css
-- js/app.js
-- img/geometry2.png
-- http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+- jQuery
+- font-awesome
 
 ## How to Play
 
