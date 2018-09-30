@@ -4,6 +4,7 @@
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
+* [Dependencies](#dependencies)
 
 ## Instructions
 
@@ -18,3 +19,11 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Dependencies
+
+- css/apps.css
+- js/app.js
+- img/geometry2.png
+- http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+
