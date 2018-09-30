@@ -27,3 +27,6 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 - img/geometry2.png
 - http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
 
+## How to Play
+
+Click on two cards to find a matching pair. Match all the cards on the table to win. 
