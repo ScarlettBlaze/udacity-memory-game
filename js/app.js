@@ -99,9 +99,6 @@ function click(card) {
 
   // Card Click event
   card.addEventListener("click", function() {
-
-    // Alert console when card is clicked.
-    console.log(card.innerHTML);
     
     const currentCard = this;
     const previousCard = openCards[0];
@@ -130,7 +127,6 @@ function compare(currentCard, previousCard) {
     // Cards are the same.
     currentCard.classList.add("match");
     previousCard.classList.add("match");
-    console.log("Matched!");
 
     // Update matchedCards array.
     matchedCards.push(currentCard, previousCard);
@@ -148,7 +144,6 @@ function compare(currentCard, previousCard) {
     setTimeout(function() {
       currentCard.classList.remove("open", "show", "disable");
       previousCard.classList.remove("open", "show", "disable");
-      console.log("No match!");
     }, 500);
 
       // Reset current pick and previous pick.
@@ -178,7 +173,6 @@ function shuffle(array) {
 */
 function endGame() {
   if (matchedCards.length === deckOfCards.length){
-    //alert("Game Over!")
     clearTimeout(timer);
     toggleModal();
   }
@@ -215,8 +209,9 @@ restartButton.addEventListener("click", function() {
   matchedCards = [];
   moves = 0;
   movesContainer.innerHTML = moves;
-  ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
-    <li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+  ratingContainer.innerHTML = `<span><i class="fa fa-star"></i></span>
+                               <span><i class="fa fa-star"></i></span>
+                               <span><i class="fa fa-star"></i></span>`;
   seconds = -1;
   minutes = 0;
 });
@@ -243,7 +238,8 @@ modalRestartButton.addEventListener("click", function() {
   moves = 0;
   movesContainer.innerHTML = moves;
   ratingContainer.innerHTML = `<span><i class="fa fa-star"></i></span>
-    <span><i class="fa fa-star"></i></span><span><i class="fa fa-star"></i></span>`;
+                               <span><i class="fa fa-star"></i></span>
+                               <span><i class="fa fa-star"></i></span>`;
   seconds = -1;
   minutes = 0;
 });
@@ -256,7 +252,7 @@ function rating() {
     // If moves exceed 20, two star rating.
     case 20:
       ratingContainer.innerHTML = `<span><i class="fa fa-star"></i></span>
-      <span><i class="fa fa-star"></i></span>`;
+                                   <span><i class="fa fa-star"></i></span>`;
     break;
     // If moves exceed 25, one star rating.
     case 25:
