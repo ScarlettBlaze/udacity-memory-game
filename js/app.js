@@ -14,17 +14,33 @@ const deckOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "f
 const cardContainer = document.querySelector(".deck");
 let openCards = [];
 let matchedCards = [];
-let seconds = 0;
+let seconds = -1;
 let minutes = 0;
-let $time = $('.time');
+let $seconds = $('.seconds');
+let $minutes = $('.minutes');
 let timer;
 let paused = false;
 const counter = function() {
-  seconds++;
-  if(seconds > 59) {
+  if(seconds >= 59) {
     seconds = 0;
+    minutes++;
   }
-  $time.html(seconds);
+  else
+  {
+    seconds++;
+  }
+  if(seconds < 10) {
+    $seconds.html('0'+ seconds);
+  }
+  else {
+    $seconds.html(seconds);
+  }
+  if(minutes < 10){
+    $minutes.html('0' + minutes);
+  }
+  else{
+    $minutes.html(minutes);
+  }
   timer = setTimeout(function() {
     counter();
   }, 1000);
@@ -53,7 +69,6 @@ function init(){
     click(card);
   }
   counter();
-  //runTimer();
 }
 /*
 * Click Event
@@ -138,6 +153,7 @@ function shuffle(array) {
 function endGame() {
   if (matchedCards.length === deckOfCards.length){
     alert("Game Over!")
+    clearTimeout(timer);
   }
 }
 /*
@@ -170,18 +186,19 @@ restartButton.addEventListener("click", function() {
   movesContainer.innerHTML = moves;
   ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
     <li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
-    clearTimeout(timer);
+  seconds = -1;
+  minutes = 0;
+  clearTimeout(timer);
+    /*
     if ($(this).hasClass('restart')) {
       seconds = 0;
-      paused = false;
-      counter();
     } 
     else {
-      paused = !paused;
+      //paused = !paused;
       if (!paused) {
-        counter();
+        //counter();
       }
-    }
+    }*/
   });
 /*
 * Rating
