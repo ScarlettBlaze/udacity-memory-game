@@ -14,13 +14,29 @@ const deckOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "f
 const cardContainer = document.querySelector(".deck");
 let openCards = [];
 let matchedCards = [];
-let time = 0;
-let clockId;
-let clockOff = true;
+let seconds = 0;
+let minutes = 0;
+let $time = $('.time');
+let timer;
+let paused = false;
+const counter = function() {
+  seconds++;
+  if(seconds > 59) {
+    seconds = 0;
+  }
+  $time.html(seconds);
+  timer = setTimeout(function() {
+    counter();
+  }, 1000);
+};
+//let x = new Date();
+//let y = x.getTime();
+//const total = y + (3*24*3600000);
 
 /*
 * Starting the game.
 */
+
 // Create cards
 function init(){
 
@@ -36,24 +52,19 @@ function init(){
     // Call card function.
     click(card);
   }
+  counter();
+  //runTimer();
 }
 /*
 * Click Event
 */
 function click(card) {
+
   // Card Click event
   card.addEventListener("click", function() {
 
     console.log(card.innerHTML);        // Alert console when card is clicked.
-
-    const clickTarget = event.target;
-    if(isClickValid(clickTarget)) {
-      if (clockOff) {
-        startClock();
-        clockOff = false;
-      }
-    }
-
+    
     const currentCard = this;
     const previousCard = openCards[0];
     // If opened card exists
@@ -159,7 +170,19 @@ restartButton.addEventListener("click", function() {
   movesContainer.innerHTML = moves;
   ratingContainer.innerHTML = `<li><i class="fa fa-star"></i></li>
     <li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
-});
+    clearTimeout(timer);
+    if ($(this).hasClass('restart')) {
+      seconds = 0;
+      paused = false;
+      counter();
+    } 
+    else {
+      paused = !paused;
+      if (!paused) {
+        counter();
+      }
+    }
+  });
 /*
 * Rating
 */
@@ -178,19 +201,41 @@ function rating() {
 /*
 * Timer
 */
-function startClock() {
-  clockId = setInterval(() => {
-    time++;
-    displayTime();
-    console.log(time);
-  }, 1000);
-}
+/*
+$('div').on('click', function() {
+  clearTimeout(timer);
+  if ($(this).hasClass('restart')) {
+        seconds = 0;
+        paused = false;
+        counter();
+    } else {
+        paused = !paused;
+        if (!paused) {
+          counter();
+        }
+    }
+});
 
-function displayTime() {
-  const timer = document.querySelector('.timer');
-  console.log(timer);
-  timer.innerHTML = time;
+function runTimer() {
+  let now = new Date();
+  let currentTime = now.getTime();
+
+  let diff = total + currentTime;
+  s = Math.floor(diff/1000);
+  m = Math.floor(s/60);
+
+  m = m % 60;
+  s = s % 60;
+
+  m = (m<10)?"0"+m:m;
+  s = (s<10)?"0"+s:s;
+
+  document.getElementById("minutes").innerHTML = m;
+  document.getElementById("seconds").innerHTML = s;
+  setTimeout(runTimer, 1000);
 }
+*/
+
 /////// First time game start.
 init();
 

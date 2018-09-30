@@ -8,7 +8,6 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
-    <script src="lib/easytimer/dist/easytimer.min.js"></script>
 </head>
 <body>
 
@@ -18,14 +17,16 @@
         </header>
 
         <section class="score-panel">
+            Rating: 
         	<ul class="stars">
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
-        	</ul>
-          <span class="timer">00:00</span>
+            </ul>
+            
+            <span class="moves"></span> Moves
 
-        	<span class="moves"></span> Moves
+            Timer: <span class="time">0</span>
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>
@@ -37,6 +38,8 @@
         </ul>
     </div>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="js/app.js"></script>
+
 </body>
 </html>
