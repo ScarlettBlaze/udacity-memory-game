@@ -75,6 +75,17 @@ h1 {
     padding: 1rem;
     border-bottom: 1px solid gray;
 }
+
+.modal_buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.modal_button {
+    width: 60px;
+    height: 30px;
+}
 /*
  * Styles for the deck of cards
  */
