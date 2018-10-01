@@ -8,7 +8,6 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
-    <script src="lib/easytimer/dist/easytimer.min.js"></script>
 </head>
 <body>
 
@@ -18,15 +17,19 @@
         </header>
 
         <section class="score-panel">
+            Rating: 
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
-          <span class="timer">00:00</span>
-
-        	<span class="moves"></span> Moves
-
+        		<span><i class="fa fa-star"></i></span>
+        		<span><i class="fa fa-star"></i></span>
+        		<span><i class="fa fa-star"></i></span>
+            </ul>
+            
+            <span class="moves"></span> Moves
+            
+            Timer: 
+            <span class="timer">
+                <span class="minutes"></span>:<span class="seconds"></span>
+            </span>
             <div class="restart">
         		<i class="fa fa-repeat"></i>
         	</div>
@@ -36,7 +39,26 @@
 
         </ul>
     </div>
+    <div class="modal_background hide">
+        <div class="modal_body">
+            <div class="modal_heading">
+                <h1 class="modal_title">Stats</h1>
+                <span class="modal_close">x</span>
+            </div>
+            <div class="modal_stats">
+                <span class="modal_time"></span>
+                <span class="modal_rating"></span>
+                <span class="modal_moves"></span>
+            </div>
+            <div class="modal_buttons">
+                <button class="modal_button modal_cancel">Cancel</button>
+                <button class="modal_button modal_restart">Restart</button>
+            </div>
+        </div>
+    </div>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="js/app.js"></script>
+
 </body>
 </html>
