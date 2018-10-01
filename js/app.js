@@ -32,18 +32,11 @@ const deckOfCards = ["fa fa-diamond", "fa fa-diamon",
 const cardContainer = document.querySelector(".deck");
 let openCards = [];
 let matchedCards = [];
-<<<<<<< HEAD
-||||||| merged common ancestors
-let time = 0;
-let clockId;
-let clockOff = true;
-=======
 let seconds = -1;
 let minutes = 0;
 let $seconds = $('.seconds');
 let $minutes = $('.minutes');
 let timer;
->>>>>>> 30ab21b8cec02fb65c6f56179f3f02295cef3440
 
 ////////////////////////////////////////////////////////////////////////////
 /*
@@ -106,25 +99,7 @@ function click(card) {
 
   // Card Click event
   card.addEventListener("click", function() {
-<<<<<<< HEAD
-
-    console.log(card.innerHTML);        // Alert console when card is clicked.
-
-||||||| merged common ancestors
-
-    console.log(card.innerHTML);        // Alert console when card is clicked.
-
-    const clickTarget = event.target;
-    if(isClickValid(clickTarget)) {
-      if (clockOff) {
-        startClock();
-        clockOff = false;
-      }
-    }
-
-=======
     
->>>>>>> 30ab21b8cec02fb65c6f56179f3f02295cef3440
     const currentCard = this;
     const previousCard = openCards[0];
     // If opened card exists
@@ -288,16 +263,6 @@ function rating() {
 /*
 * Toggle stat window.
 */
-<<<<<<< HEAD
-||||||| merged common ancestors
-function startClock() {
-  clockId = setInterval(() => {
-    time++;
-    displayTime();
-    console.log(time);
-  }, 1000);
-}
-=======
 function toggleModal(){
   const modal = document.querySelector('.modal_background');
   modal.classList.toggle('hide');
@@ -312,27 +277,11 @@ function writeModalStats(){
   const movesStat = document.querySelector('.modal_moves');
   const ratingStat = document.querySelector('.modal_rating');
   const rating = ratingContainer.innerHTML;
->>>>>>> 30ab21b8cec02fb65c6f56179f3f02295cef3440
 
-<<<<<<< HEAD
-/////// First time game start.
-init();
-
-||||||| merged common ancestors
-function displayTime() {
-  const timer = document.querySelector('.timer');
-  console.log(timer);
-  timer.innerHTML = time;
-}
-/////// First time game start.
-init();
-
-=======
   timeStat.innerHTML = `Time: ${clockTime}`;
   movesStat.innerHTML = `Moves: ${moves}`;
   ratingStat.innerHTML = `Rating: ${rating}`;
 }
->>>>>>> 30ab21b8cec02fb65c6f56179f3f02295cef3440
 /*
 * Cancel button in modal.
 */
