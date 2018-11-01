@@ -12,7 +12,7 @@
 /*
  * Create a list that holds all of your cards
  */
-const deckOfCards = ["fa fa-diamond", "fa fa-diamon", 
+const deckOfCards = ["fa fa-diamond", "fa fa-diamond", 
                      "fa fa-paper-plane-o", "fa fa-paper-plane-o", 
                      "fa fa-anchor", "fa fa-anchor", 
                      "fa fa-bolt", "fa fa-bolt", 
