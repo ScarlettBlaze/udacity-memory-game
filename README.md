@@ -1,22 +1,18 @@
 # Memory Game Project
 
-## Table of Contents
+## Description
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
-* [Dependencies](#dependencies)
+This goal of this project was to build a matching tile game using Javascript and jQuery. 
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+1. Clone repository or download `.zip` file.
+2. Open project folder and open `index.html`.
+3. Click on two cards to find a matching pair. Match all the cards on the table to win. 
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This project was made using starter code provided by Udacity.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -25,6 +21,3 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 - jQuery
 - font-awesome
 
-## How to Play
-
-Click on two cards to find a matching pair. Match all the cards on the table to win. 
